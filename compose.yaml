@@ -1,0 +1,57 @@
+name: leadflow
+x-app: &app
+  build: ./backend
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-leadflow}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/${POSTGRES_DB:-leadflow}
+    SOLR_URL: http://solr:8983/solr/leads
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-leadflow}
+      POSTGRES_USER: ${POSTGRES_USER:-leadflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  solr:
+    image: solr:9.8
+    command: ["solr-precreate", "leads"]
+    ports: ["127.0.0.1:8983:8983"]
+    volumes: ["solr_data:/var/solr"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS 'http://localhost:8983/solr/leads/admin/ping' >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  init:
+    <<: *app
+    command: ["sh", "-c", "alembic upgrade head && python -m leadflow.scripts.seed"]
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    <<: *app
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  worker:
+    <<: *app
+    command: ["python", "-m", "leadflow.features.search.worker"]
+    restart: unless-stopped
+    depends_on:
+      init: {condition: service_completed_successfully}
+      solr: {condition: service_healthy}
+volumes:
+  postgres_data:
+  solr_data:
