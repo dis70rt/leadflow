@@ -1,0 +1,149 @@
+.lead-row {
+  display: grid;
+  grid-template-columns:
+    35px minmax(120px, 1.15fr) minmax(160px, 1.4fr)
+    130px 136px 10px;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 22px 20px;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.lead-row:last-child {
+  border-bottom: 0;
+}
+.lead-row:hover {
+  background: var(--hover);
+}
+.lead-row:focus-visible {
+  outline-offset: -3px;
+}
+.pinned-row {
+  background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface));
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 550;
+  background: var(--neutral-bg);
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.avatar-new {
+  background: var(--cyan-bg);
+  color: var(--cyan);
+}
+.avatar-qualified,
+.avatar-won {
+  background: var(--green-bg);
+  color: var(--green);
+}
+.avatar-proposal_sent {
+  background: var(--purple-bg);
+  color: var(--purple);
+}
+.avatar-contacted {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+.lead-identity,
+.lead-note {
+  min-width: 0;
+}
+.lead-identity strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 560;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lead-identity > span {
+  display: block;
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lead-note > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 11px;
+}
+.lead-note svg {
+  display: none;
+}
+.lead-note small {
+  font-size: 9px;
+  color: var(--faint);
+  display: block;
+  margin-top: 5px;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 9px;
+  background: var(--neutral-bg);
+  color: var(--faint);
+}
+.status-badge > span {
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+}
+.status-new {
+  background: var(--cyan-bg);
+  color: var(--cyan);
+}
+.status-contacted {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+.status-qualified,
+.status-won {
+  background: var(--green-bg);
+  color: var(--green);
+}
+.status-proposal_sent {
+  background: var(--purple-bg);
+  color: var(--purple);
+}
+.lead-reminder {
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lead-reminder small {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+}
+.lead-reminder.overdue {
+  color: var(--red);
+}
+.no-reminder {
+  color: var(--faint);
+  font-size: 10px;
+}
+.row-chevron {
+  color: var(--faint);
+}

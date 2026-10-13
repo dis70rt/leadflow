@@ -1,0 +1,86 @@
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 680;
+  letter-spacing: -0.9px;
+}
+.brand-symbol {
+  color: var(--accent-text);
+  background: var(--accent);
+  width: 33px;
+  height: 33px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+}
+.brand-period {
+  color: var(--accent);
+}
+.loading-state,
+.error-state {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--muted);
+}
+.error-state {
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+}
+.error-state > svg {
+  color: var(--red);
+}
+.error-state p {
+  max-width: 400px;
+}
+.boot-screen {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+.field-error {
+  color: var(--red);
+  font-size: 12px;
+  padding: 8px 0;
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background: var(--surface);
+  z-index: 100;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

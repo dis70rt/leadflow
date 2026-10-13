@@ -1,0 +1,126 @@
+.discussion-form {
+  padding: 20px 25px;
+  border-top: 1px solid var(--border);
+}
+.discussion-form > label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.discussion-form textarea {
+  width: 100%;
+  min-height: 95px;
+  max-height: 200px;
+  resize: vertical;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.discussion-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 13px;
+}
+.reminder-controls {
+  min-width: 0;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.reminder-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 10px;
+}
+.reminder-date input {
+  padding: 7px 9px;
+  font-size: 11px;
+  max-width: 100%;
+}
+.reminder-date small,
+.closed-hint {
+  font-size: 9px;
+  color: var(--faint);
+}
+.closed-hint {
+  display: block;
+  margin-top: 8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .modal-overlay {
+    animation: overlay-in 0.15s ease-out;
+  }
+  .modal {
+    animation: modal-in 0.2s ease-out;
+  }
+}
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 600px) {
+  .modal {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+  .modal-header,
+  .modal-form {
+    padding: 20px;
+  }
+  .lead-detail-bar {
+    padding: 12px 20px;
+  }
+  .timeline {
+    padding: 20px 14px;
+  }
+  .timeline-scroll {
+    max-height: 37dvh;
+  }
+  .timeline-note {
+    padding: 12px;
+  }
+  .timeline-date {
+    font-size: 9px;
+  }
+  .discussion-form {
+    padding: 17px;
+  }
+  .active-reminder {
+    padding: 10px 20px;
+    font-size: 9px;
+  }
+  .modal-description {
+    max-width: 260px;
+  }
+  .status-select > span {
+    display: none;
+  }
+  .discussion-form-actions {
+    gap: 10px;
+  }
+  .discussion-form-actions .button {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+}

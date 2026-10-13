@@ -4,3 +4,12 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
+
+# Frontend and local agent tooling
+node_modules/
+.next/
+*.tsbuildinfo
+playwright-report/
+test-results/
+.agents/
+/frontend/next-env.d.ts

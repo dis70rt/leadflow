@@ -1,0 +1,139 @@
+.login-form-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 35px 50px 30px;
+}
+.login-theme {
+  align-self: flex-end;
+}
+.login-form-wrap {
+  width: min(360px, 100%);
+  margin: auto;
+  padding: 60px 0;
+}
+.demo-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  color: var(--faint);
+  margin-bottom: 22px;
+}
+.login-form-wrap h2 {
+  font-size: 29px;
+  letter-spacing: -1px;
+  font-weight: 570;
+}
+.login-form-wrap > p {
+  margin-top: 11px;
+  font-size: 12px;
+  color: var(--faint);
+}
+.login-form {
+  display: grid;
+  gap: 21px;
+  margin-top: 32px;
+}
+.login-form label {
+  font-size: 11px;
+}
+.login-form input {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  font-size: 12px;
+  padding: 13px;
+  background: var(--surface);
+}
+.login-submit {
+  width: 100%;
+  margin-top: 2px;
+  justify-content: space-between;
+  padding: 13px 16px;
+}
+.demo-note {
+  display: flex;
+  gap: 9px;
+  color: var(--faint);
+  padding-top: 22px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.demo-note > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.demo-note p {
+  font-size: 10px;
+  line-height: 1.9;
+}
+.login-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--faint);
+  font-size: 9px;
+}
+@media (max-width: 1000px) {
+  .login-story {
+    padding: 35px;
+  }
+  .login-story h1 {
+    font-size: 47px;
+  }
+  .login-form-side {
+    padding: 30px;
+  }
+}
+@media (max-width: 740px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-story {
+    min-height: auto;
+    padding: 28px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .login-story-body {
+    padding: 36px 0 15px;
+  }
+  .login-story h1 {
+    font-size: 43px;
+    letter-spacing: -1.8px;
+  }
+  .login-story h1 br:nth-of-type(2) {
+    display: none;
+  }
+  .login-story-body > p {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .relationship-map,
+  .login-caption {
+    display: none;
+  }
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 8px;
+  }
+  .login-form-side {
+    padding: 20px 28px;
+  }
+  .login-form-wrap {
+    padding: 25px 0 45px;
+  }
+  .login-form-wrap h2 {
+    font-size: 27px;
+  }
+  .login-theme {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+  }
+  .login-footer {
+    font-size: 8px;
+  }
+}

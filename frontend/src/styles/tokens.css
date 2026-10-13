@@ -1,0 +1,58 @@
+@import "@fontsource-variable/geist";
+
+:root {
+  color-scheme: light;
+  --bg: #f7f8fa;
+  --surface: #fff;
+  --surface-raised: #fff;
+  --sidebar: #f1f3f6;
+  --hover: #f0f3f8;
+  --text: #252a3a;
+  --muted: #536075;
+  --faint: #606a7c;
+  --border: #e2e6ed;
+  --accent: #4268cc;
+  --accent-text: #fff;
+  --accent-soft: #edf2ff;
+  --green: #37734e;
+  --green-bg: #eaf4ed;
+  --yellow: #926516;
+  --yellow-bg: #fbf2df;
+  --purple: #7857ab;
+  --purple-bg: #f2edf9;
+  --red: #b83c55;
+  --red-bg: #fceef0;
+  --cyan: #286f8e;
+  --cyan-bg: #e9f4fa;
+  --neutral-bg: #eef0f4;
+  --shadow: 0 24px 80px #18213c24;
+  --overlay: #11162270;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1a1b26;
+  --surface: #1e2030;
+  --surface-raised: #232638;
+  --sidebar: #16161e;
+  --hover: #292e42;
+  --text: #c0caf5;
+  --muted: #a9b1d6;
+  --faint: #929bc2;
+  --border: #30344c;
+  --accent: #7aa2f7;
+  --accent-text: #16161e;
+  --accent-soft: #283457;
+  --green: #9ece6a;
+  --green-bg: #28372e;
+  --yellow: #e0af68;
+  --yellow-bg: #373125;
+  --purple: #bb9af7;
+  --purple-bg: #322b46;
+  --red: #f7768e;
+  --red-bg: #3e2937;
+  --cyan: #7dcfff;
+  --cyan-bg: #253644;
+  --neutral-bg: #292e42;
+  --shadow: 0 24px 80px #08091266;
+  --overlay: #0b0c16a8;
+}
