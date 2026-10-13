@@ -104,6 +104,7 @@ authentication, TLS, and restricted service access; this assessment API has no l
 | --- | --- | --- |
 | GET | `/api/v1/leads` | Filtered, searchable, paginated summaries |
 | POST | `/api/v1/leads` | Create lead, 201 with Location header |
+| GET | `/api/v1/leads/suggestions` | Fuzzy lead/discussion suggestions with matched excerpts |
 | GET | `/api/v1/leads/{id}` | Lead details |
 | PATCH | `/api/v1/leads/{id}` | Partial update, including status/reminder |
 | GET | `/api/v1/leads/{id}/discussions` | Reverse chronological timeline |
@@ -117,7 +118,11 @@ Unknown payload fields and whitespace-only names/notes are rejected.
 Today's reminders sort first by reminder time, including already overdue reminders
 from today. Other leads sort by recent activity. With search, unpinned leads sort by
 relevance, then recent activity. Search matches analyzed words in name, company, phone,
-and all discussions, with higher weight for lead names. It uses Solr's default `*_txt`
+and all discussions, with higher weight for lead names. Both list search and suggestions
+use bounded, server-generated Solr queries: all words must match across fields, the final
+word supports prefixes from two characters, words of 4–6 characters allow one edit, and
+longer words allow two edits. Exact matches rank higher. Up to twelve words of sixty-four
+characters each are accepted; raw Solr operators are not interpreted. It uses Solr's default `*_txt`
 text fields. Search is eventually consistent; a search already in progress may briefly
 show older matching results. Queries exceeding 10,000 matching leads require refinement.
 
@@ -145,6 +150,19 @@ Errors share this structure, including 404, 422, 503, and unexpected 500 respons
 ```
 
 Swagger documents validation, response models, examples, parameters, and error schemas.
+
+## Suggestions
+
+`GET /api/v1/leads/suggestions?q=pricng&limit=5` searches every pipeline stage.
+The query requires 2–200 characters and `limit` is 1–10. Results contain current PostgreSQL
+lead details, a `match_field`, and a Solr `snippet`; matching discussions are preferred,
+including historical notes that differ from the latest summary. Multi-valued highlighting
+can return empty fragments for nonmatching discussions; the adapter skips those fragments.
+
+`snippet` is plain text with U+E000/U+E001 match delimiters. Render the text through escaped
+text nodes and explicit highlight elements, never through raw HTML. Missing excerpts are
+null. Solr outages return a structured 503. No schema change or reindex is required for
+existing lead documents because their complete discussion text was already indexed.
 
 ## Example flow
 

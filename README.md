@@ -49,7 +49,7 @@ Browser requests use a same-origin proxy, so changing the frontend port does not
 ## Main workflows
 
 - Add leads with name, optional company, and phone.
-- Search names, companies, phone numbers, and discussion history.
+- Fuzzy-search names, companies, phones, and discussion history with snippet suggestions.
 - Filter every pipeline stage and paginate server-side.
 - Pin today's follow-ups and highlight overdue reminders in red.
 - Open a lead dialog, read newest-first history, and load older discussions.
@@ -65,6 +65,7 @@ frontend/src/
     auth/                Demo session and sign-in
     leads/               Typed API adapter, query hooks, forms, list
     discussions/         Timeline, pagination, discussion form
+    search/              Fuzzy suggestions and safe discussion highlights
     workspace/           Layout, filters, selection, pagination state
   components/ui/         Shared accessible primitives
   providers/             Query client, theme, shared clock/timezone

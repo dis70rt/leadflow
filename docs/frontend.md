@@ -28,6 +28,7 @@ uses Next.js standalone output and runs as the unprivileged Node user.
 
 - `features/leads`: lead contracts, HTTP adapter, query keys/hooks, creation, list, filters.
 - `features/discussions`: discussion contracts, HTTP adapter, infinite timeline, note form.
+- `features/search`: fuzzy suggestions, combobox keyboard state, safe snippet highlighting.
 - `features/workspace`: composition, sidebar, summary, selected lead, filters, pagination.
 - `features/auth`: demo session and UI gating. No passwords or authentication tokens.
 - `components/ui`: Radix modal, feedback states, theme toggle, branding.
@@ -56,6 +57,21 @@ at 12–13px. Wider desktop content, roomier rows, and larger dialogs support th
 Pagination comes from the backend. The follow-up count says "in this view" because it
 counts the currently loaded page and filters rather than claiming a global reminder total.
 Relative discussion times and overdue states refresh every minute.
+
+## Search suggestions
+
+The search field fetches up to five suggestions after a 250ms debounce using
+`GET /api/v1/leads/suggestions`. Suggestions include name, company, status, and a matching
+excerpt from discussion history or lead details. Matching words are rendered as React
+`mark` elements; Solr text is never injected as HTML. Suggestions span all lead stages,
+while the list keeps its selected status filter.
+
+Arrow keys select a suggestion, Enter opens its lead timeline, and Escape dismisses the
+popup without clearing the query. Clicking works on desktop and mobile. Loading skeletons,
+empty feedback, errors, and retry are supported. Query cancellation and separate cache keys
+prevent older requests from replacing the current suggestions. The same typo-tolerant
+query construction powers list results, so a misspelled search can still find a lead after
+the popup is dismissed.
 
 ## Fast checks
 
@@ -139,10 +155,10 @@ The test stack uses temporary storage; do not aim these tests at valuable data.
 
 ## Verified checks
 
-During implementation, 11 frontend unit tests, six mocked browser workflows, and the
+During implementation, 14 frontend unit tests, nine mocked browser workflows, and the
 separate real-backend browser workflow passed. The standalone production build was run
 against the development backend and captured without browser errors or horizontal overflow.
-The backend's 32 tests also passed with PostgreSQL/Solr integration enabled.
+The backend's 41 tests also passed with PostgreSQL/Solr integration enabled.
 
 `npm audit --omit=dev` reported no production dependency vulnerabilities. The development
 lint toolchain currently reports five high-severity findings through `braces`/`micromatch`;

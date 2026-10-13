@@ -31,3 +31,11 @@ with a demo session named Alex Morgan. Original captures have not been removed.
 - [workspace-dark-final-readable.png](workspace-dark-final-readable.png)
 - [workspace-light-final-readable.png](workspace-light-final-readable.png)
 - [workspace-mobile-dark-readable.png](workspace-mobile-dark-readable.png)
+
+## Fuzzy search suggestions
+
+These captures use real Solr matches for the misspelled query `pricng`.
+
+- [Dark suggestions with discussion excerpt](fuzzy-discussion-suggestions-dark.png)
+- [Light suggestions with discussion excerpt](fuzzy-discussion-suggestions-light.png)
+- [Mobile suggestions](fuzzy-discussion-suggestions-mobile.png)
