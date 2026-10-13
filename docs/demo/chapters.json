@@ -1,0 +1,106 @@
+{
+  "completed": true,
+  "source": "Current frontend; real FastAPI and isolated PostgreSQL. Search segment uses clearly labeled demo API responses.",
+  "chapters": [
+    {
+      "start": 0,
+      "text": "LeadFlow | Leads, conversations, and follow-ups in one workspace",
+      "end": 5.462
+    },
+    {
+      "start": 5.462,
+      "text": "Demo sign-in | A browser-tab session, with no password",
+      "end": 11.048
+    },
+    {
+      "start": 11.048,
+      "text": "Pipeline overview | Latest notes, statuses, and activity times",
+      "end": 14.879
+    },
+    {
+      "start": 14.879,
+      "text": "Follow-ups | Today's reminders are pinned; overdue reminders are red",
+      "end": 22.291
+    },
+    {
+      "start": 22.291,
+      "text": "Create a lead | Name required; company and phone are optional",
+      "end": 32.939
+    },
+    {
+      "start": 32.939,
+      "text": "New leads start at New | Open the lead to build its history",
+      "end": 37.594
+    },
+    {
+      "start": 37.594,
+      "text": "Update status | Qualify the lead directly from its dialog",
+      "end": 40.119
+    },
+    {
+      "start": 40.119,
+      "text": "Log a discussion | Keep the conversation and next action together",
+      "end": 46.978
+    },
+    {
+      "start": 46.978,
+      "text": "Schedule follow-up | Save the discussion with a 4:30 PM reminder",
+      "end": 50.887
+    },
+    {
+      "start": 50.887,
+      "text": "Saved immediately | The note appears first and the reminder updates",
+      "end": 56.304
+    },
+    {
+      "start": 56.304,
+      "text": "Today's priorities | The new follow-up is pinned in the lead list",
+      "end": 60.307
+    },
+    {
+      "start": 60.307,
+      "text": "Reload | The discussion, reminder, and status persist in PostgreSQL",
+      "end": 66.514
+    },
+    {
+      "start": 66.514,
+      "text": "Filter the pipeline | Focus on qualified leads",
+      "end": 70.121
+    },
+    {
+      "start": 70.121,
+      "text": "Search UI demo | Fixed demo responses; this segment does not verify Solr",
+      "end": 76.064
+    },
+    {
+      "start": 76.064,
+      "text": "Search UI demo | Find a historical discussion despite a typo",
+      "end": 81.631
+    },
+    {
+      "start": 81.631,
+      "text": "Discussion timeline | All conversations appear newest first",
+      "end": 87.125
+    },
+    {
+      "start": 87.125,
+      "text": "Light mode | A smooth theme change across the entire workspace",
+      "end": 96.64
+    },
+    {
+      "start": 96.64,
+      "text": "LeadFlow | Built for the follow-through",
+      "end": 100.642
+    }
+  ],
+  "media": {
+    "file": "leadflow-demo.mp4",
+    "durationSeconds": 99.92,
+    "width": 1920,
+    "height": 1080,
+    "framesPerSecond": 25,
+    "codec": "H.264",
+    "sizeBytes": 4090457,
+    "audio": false
+  }
+}

@@ -1,0 +1,55 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.462
+LeadFlow | Leads, conversations, and follow-ups in one workspace
+
+00:00:05.462 --> 00:00:11.048
+Demo sign-in | A browser-tab session, with no password
+
+00:00:11.048 --> 00:00:14.879
+Pipeline overview | Latest notes, statuses, and activity times
+
+00:00:14.879 --> 00:00:22.291
+Follow-ups | Today's reminders are pinned; overdue reminders are red
+
+00:00:22.291 --> 00:00:32.939
+Create a lead | Name required; company and phone are optional
+
+00:00:32.939 --> 00:00:37.594
+New leads start at New | Open the lead to build its history
+
+00:00:37.594 --> 00:00:40.119
+Update status | Qualify the lead directly from its dialog
+
+00:00:40.119 --> 00:00:46.978
+Log a discussion | Keep the conversation and next action together
+
+00:00:46.978 --> 00:00:50.887
+Schedule follow-up | Save the discussion with a 4:30 PM reminder
+
+00:00:50.887 --> 00:00:56.304
+Saved immediately | The note appears first and the reminder updates
+
+00:00:56.304 --> 00:01:00.307
+Today's priorities | The new follow-up is pinned in the lead list
+
+00:01:00.307 --> 00:01:06.514
+Reload | The discussion, reminder, and status persist in PostgreSQL
+
+00:01:06.514 --> 00:01:10.121
+Filter the pipeline | Focus on qualified leads
+
+00:01:10.121 --> 00:01:16.064
+Search UI demo | Fixed demo responses; this segment does not verify Solr
+
+00:01:16.064 --> 00:01:21.631
+Search UI demo | Find a historical discussion despite a typo
+
+00:01:21.631 --> 00:01:27.125
+Discussion timeline | All conversations appear newest first
+
+00:01:27.125 --> 00:01:36.640
+Light mode | A smooth theme change across the entire workspace
+
+00:01:36.640 --> 00:01:40.642
+LeadFlow | Built for the follow-through

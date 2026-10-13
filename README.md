@@ -15,6 +15,7 @@
 </p>
 
 <p align="center">
+  <a href="docs/demo/leadflow-demo.mp4">Demo video</a> ·
   <a href="#features">Features</a> ·
   <a href="#getting-started">Getting started</a> ·
   <a href="#usage-scenarios">Usage</a> ·
@@ -56,6 +57,8 @@ if port 3000 is occupied. All variables are listed in [.env.example](.env.exampl
 Stop with `sudo docker compose down`. Database and search data remain in named volumes.
 
 ## Usage scenarios
+
+[Watch the captioned walkthrough](docs/demo/leadflow-demo.mp4) · [Video chapters and recording notes](docs/demo/README.md)
 
 All images below are fresh **16:9** captures of the current interface.
 [Capture details](docs/screenshots/readme/README.md) describe the scenario data.

@@ -1,0 +1,30 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans,28,&H00F5CAC0,&H00F5CAC0,&H20160C0B,&H20160C0B,0,0,0,0,100,100,0,0,3,10,0,2,240,240,28,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:05.46,Default,,0,0,0,,LeadFlow | Leads, conversations, and follow-ups in one workspace
+Dialogue: 0,0:00:05.46,0:00:11.05,Default,,0,0,0,,Demo sign-in | A browser-tab session, with no password
+Dialogue: 0,0:00:11.05,0:00:14.88,Default,,0,0,0,,Pipeline overview | Latest notes, statuses, and activity times
+Dialogue: 0,0:00:14.88,0:00:22.29,Default,,0,0,0,,Follow-ups | Today's reminders are pinned; overdue reminders are red
+Dialogue: 0,0:00:22.29,0:00:32.94,Default,,0,0,0,,Create a lead | Name required; company and phone are optional
+Dialogue: 0,0:00:32.94,0:00:37.59,Default,,0,0,0,,New leads start at New | Open the lead to build its history
+Dialogue: 0,0:00:37.59,0:00:40.12,Default,,0,0,0,,Update status | Qualify the lead directly from its dialog
+Dialogue: 0,0:00:40.12,0:00:46.98,Default,,0,0,0,,Log a discussion | Keep the conversation and next action together
+Dialogue: 0,0:00:46.98,0:00:50.89,Default,,0,0,0,,Schedule follow-up | Save the discussion with a 4:30 PM reminder
+Dialogue: 0,0:00:50.89,0:00:56.30,Default,,0,0,0,,Saved immediately | The note appears first and the reminder updates
+Dialogue: 0,0:00:56.30,0:01:00.31,Default,,0,0,0,,Today's priorities | The new follow-up is pinned in the lead list
+Dialogue: 0,0:01:00.31,0:01:06.51,Default,,0,0,0,,Reload | The discussion, reminder, and status persist in PostgreSQL
+Dialogue: 0,0:01:06.51,0:01:10.12,Default,,0,0,0,,Filter the pipeline | Focus on qualified leads
+Dialogue: 0,0:01:10.12,0:01:16.06,Default,,0,0,0,,Search UI demo | Fixed demo responses; this segment does not verify Solr
+Dialogue: 0,0:01:16.06,0:01:21.63,Default,,0,0,0,,Search UI demo | Find a historical discussion despite a typo
+Dialogue: 0,0:01:21.63,0:01:27.12,Default,,0,0,0,,Discussion timeline | All conversations appear newest first
+Dialogue: 0,0:01:27.12,0:01:36.64,Default,,0,0,0,,Light mode | A smooth theme change across the entire workspace
+Dialogue: 0,0:01:36.64,0:01:40.64,Default,,0,0,0,,LeadFlow | Built for the follow-through
