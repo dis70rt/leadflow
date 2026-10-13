@@ -2,6 +2,7 @@ from uuid import UUID, uuid4
 
 import httpx
 
+from leadflow.features.search.solr import get_search_index
 from leadflow.features.search.worker import IndexWorker
 
 
@@ -18,6 +19,12 @@ def test_search_finds_discussion_text(postgres_client, postgres, solr):
             while worker.process_one(session):
                 pass
         assert UUID(identifier) in solr.search(token)
+        client.app.dependency_overrides[get_search_index] = lambda: solr
+        response = client.get("/api/v1/leads", params={"q": token, "status": "new"})
+        assert response.status_code == 200
+        assert response.json()["total"] == 1
+        assert response.json()["items"][0]["id"] == identifier
+        assert response.json()["items"][0]["last_note"] == token
     finally:
         response = httpx.post(
             f"{solr.url}/update",
