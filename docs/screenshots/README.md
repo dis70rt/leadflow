@@ -39,3 +39,20 @@ These captures use real Solr matches for the misspelled query `pricng`.
 - [Dark suggestions with discussion excerpt](fuzzy-discussion-suggestions-dark.png)
 - [Light suggestions with discussion excerpt](fuzzy-discussion-suggestions-light.png)
 - [Mobile suggestions](fuzzy-discussion-suggestions-mobile.png)
+
+## Hairline landing illustration
+
+These captures show the new paper-plane artwork. Earlier captures remain above.
+
+- [Tokyo Night landing](landing-hairline-dark.png)
+- [Light landing](landing-hairline-light.png)
+- [Refined mobile Tokyo Night landing](landing-hairline-mobile-dark-refined.png)
+- [Refined mobile light landing](landing-hairline-mobile-light-refined.png)
+- [Initial mobile Tokyo Night capture](landing-hairline-mobile-dark.png)
+- [Initial mobile light capture](landing-hairline-mobile-light.png)
+- [Hairline eight-view look sheet](hairline-paper-plane-look.png)
+- [Small silhouette without labels](hairline-paper-plane-blind.png)
+- [Pointer-response motion sheet](hairline-paper-plane-motion.png)
+
+The Hairline sheets use the standalone demo's neutral palette; the app captures
+use LeadFlow's theme tokens. [Illustration source and notes](../illustrations/README.md).

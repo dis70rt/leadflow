@@ -180,3 +180,15 @@ the registry does not offer a compatible fix for that dependency chain. Do not a
 The dark palette derives from the official
 [Tokyo Night night colors](https://github.com/folke/tokyonight.nvim/blob/main/extras/lua/tokyonight_night.lua).
 The installed taste skill's minimalist guidance was adapted for a functional CRM workspace.
+
+## Landing illustration
+
+The landing page includes a custom Hairline paper plane, with pointer-guided
+banking and a keyboard-accessible flight control. The engine is vendored unchanged
+with its MIT license; no external runtime or CDN is required. The React adapter
+and hook live in `src/components/illustrations` and `src/lib/hairline`.
+Autoplay pauses offscreen, in hidden tabs, and for reduced-motion preferences.
+
+The workspace's empty lead list uses a smaller inline SVG. See
+[illustration notes and standalone preview](illustrations/README.md) and
+[retained captures](screenshots/README.md#hairline-landing-illustration).
