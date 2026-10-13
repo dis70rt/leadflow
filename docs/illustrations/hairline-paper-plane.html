@@ -875,7 +875,7 @@ var HL = (() => {
 })();
 </script>
 <script type="module" id="hl-figure">
-const { Cam, clamp, fit, proj, fillet, poly, open, spring, stepS, mk, pointer, register, disposer } = HL;
+const { Cam, clamp, fit, proj, fillet, poly, open, spring, stepS, mk, pointer, register, disposer, reducedMotion } = HL;
 
 function mount({ stage, svg, read }, value) {
   const bag = disposer();
@@ -885,7 +885,12 @@ function mount({ stage, svg, read }, value) {
   const bank = spring(-0.16), lift = spring(12), turn = spring(-0.15);
   const leftFlex = spring(5), rightFlex = spring(11);
   let reach = value, over = null, drawn = "";
+  const ambient = stage.dataset.flight === "ambient";
+  let phase = -Math.PI / 4;
+  const trail = ambient ? mk("path", { class: "nf dash lo" }, svg) : null;
+  const origin = P(0, 0, 12);
   const g = mk("g", {}, svg);
+  const route = (t) => [200 + 112 * Math.sin(t), 166 + 56 * Math.sin(2 * t)];
   const far = mk("path", { class: "sil" }, g);
   const farFold = mk("path", { class: "nf lo" }, g);
   const keel = mk("path", { class: "sil" }, g);
@@ -919,7 +924,24 @@ function mount({ stage, svg, read }, value) {
     edge.setAttribute("d", open([point(-56, 50, rightFlex.x - 1.5), point(-33, 2, -1.5)]));
   }
   const motion = register(stage, (dt) => {
-    let moving = false;
+    const flying = ambient && stage.dataset.flightPaused !== "true" && !reducedMotion();
+    if (flying) {
+      phase += dt * Math.PI * 2 / 12;
+      if (!over) {
+        bank.t = Math.sin(phase) * 0.24;
+        leftFlex.t = 5 + Math.sin(phase + 0.5) * 3;
+        rightFlex.t = 11 - Math.sin(phase + 0.5) * 3;
+      }
+      const [x, y] = route(phase);
+      const heading = Math.atan2(112 * Math.cos(2 * phase), 112 * Math.cos(phase)) * 180 / Math.PI;
+      const scale = 0.48 + Math.cos(phase) * 0.035;
+      g.setAttribute("transform", `translate(${x} ${y}) rotate(${heading}) scale(${scale}) translate(${-origin[0]} ${-origin[1]})`);
+      trail.setAttribute("d", open(Array.from({ length: 32 }, (_, i) => route(phase - 0.18 - (31 - i) * 0.024))));
+    } else if (ambient && reducedMotion()) {
+      g.removeAttribute("transform");
+      trail.setAttribute("d", "");
+    }
+    let moving = flying;
     for (const sp of [bank, lift, turn, leftFlex, rightFlex]) {
       if (stepS(sp, dt)) moving = true;
     }
@@ -948,6 +970,10 @@ function mount({ stage, svg, read }, value) {
   }));
   bag.add(() => svg.replaceChildren());
   draw();
+  if (ambient && !reducedMotion()) {
+    const [x, y] = route(phase);
+    g.setAttribute("transform", `translate(${x} ${y}) scale(0.505) translate(${-origin[0]} ${-origin[1]})`);
+  }
   return {
     set: (v) => { reach = v; retarget(); },
     destroy: bag.dispose,

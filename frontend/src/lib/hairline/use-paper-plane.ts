@@ -4,10 +4,8 @@ import { loadPaperPlane } from "./runtime";
 
 export function usePaperPlane() {
   const stageRef = useRef<HTMLDivElement>(null);
-  const runtimeRef = useRef<Awaited<ReturnType<typeof loadPaperPlane>>>(null);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
-  const [playing, setPlaying] = useState(true);
 
   useEffect(() => {
     let disposed = false;
@@ -18,9 +16,8 @@ export function usePaperPlane() {
         if (disposed || !stage) return;
         kernel.inject(document);
         const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const syncMotion = () => kernel.setReducedMotion(media.matches);
-        syncMotion();
-        media.addEventListener("change", syncMotion);
+        kernel.setReducedMotion(media.matches);
+        stage.dataset.flightPaused = "true";
         const svg = kernel.mk(
           "svg",
           { viewBox: "0 0 400 320", "aria-hidden": "true" },
@@ -30,12 +27,27 @@ export function usePaperPlane() {
           { stage, svg, read: { textContent: "rest" } },
           figure.range[1],
         );
-        runtimeRef.current = { kernel, figure };
+        let visible = false;
+        const sync = () => {
+          kernel.setReducedMotion(media.matches);
+          stage.dataset.flightPaused = String(
+            !visible || document.hidden || media.matches,
+          );
+          handle.set(figure.range[1]);
+        };
+        const observer = new IntersectionObserver(([entry]) => {
+          visible = entry.isIntersecting;
+          sync();
+        });
+        observer.observe(stage);
+        media.addEventListener("change", sync);
+        document.addEventListener("visibilitychange", sync);
         destroy = () => {
-          media.removeEventListener("change", syncMotion);
+          observer.disconnect();
+          media.removeEventListener("change", sync);
+          document.removeEventListener("visibilitychange", sync);
           handle.destroy();
           svg.remove();
-          runtimeRef.current = null;
         };
         setReady(true);
       })
@@ -48,37 +60,5 @@ export function usePaperPlane() {
     };
   }, []);
 
-  useEffect(() => {
-    const stage = stageRef.current;
-    const runtime = runtimeRef.current;
-    if (!ready || !playing || !stage || !runtime) return;
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let flight: { stop(): void } | undefined;
-    let visible = false;
-    const stop = () => {
-      flight?.stop();
-      flight = undefined;
-    };
-    const sync = () => {
-      stop();
-      if (visible && !document.hidden && !media.matches) {
-        flight = runtime.kernel.tour(stage, runtime.figure.tour);
-      }
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      sync();
-    });
-    observer.observe(stage);
-    media.addEventListener("change", sync);
-    document.addEventListener("visibilitychange", sync);
-    return () => {
-      observer.disconnect();
-      media.removeEventListener("change", sync);
-      document.removeEventListener("visibilitychange", sync);
-      stop();
-    };
-  }, [ready, playing]);
-
-  return { stageRef, ready, failed, playing, setPlaying };
+  return { stageRef, ready, failed };
 }

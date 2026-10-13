@@ -2,7 +2,8 @@
 
 [Open the standalone paper-plane demo](hairline-paper-plane.html). It works from
 disk without a server. Press **play**, or open it with `?play=1`, to watch the
-flight. The landing screen uses the same figure in the application theme.
+flight. The standalone bench demonstrates pointer banking. The landing screen
+uses the same figure in an automatic flight mode with the application theme.
 
 The plane's folded wings, recessed keel, and paper-thickness edge carry the
 shape. The pointer banks the plane and flexes the nearer wing. Default springs
@@ -17,12 +18,15 @@ plane's folded shape. The figure stays inside the frame at both intensity limits
 
 The skill's validator and browser look passed. The small silhouette shows both
 folded wings and the keel; the motion sheet shows stable folds and paint order.
-Both themes, pointer response, keyboard playback, reduced motion, and the static
-fallback were checked in Chromium. The flight tour still needs the user's visual
-judgment.
+The original pointer-based version was checked in Chromium in both themes.
+The landing now uses a continuous twelve-second flight route with turning,
+banking, wing flex, and a short trail. It has no caption or playback controls.
+Browser checks were skipped for this revision at the user's request.
 
-The app adapter loads the engine once, disposes the figure on unmount, and pauses
-the flight when offscreen or the tab is hidden. Reduced-motion preferences stop
+The ambient flight advances inside the Hairline frame loop, using SVG transforms
+without React renders on each frame. The app adapter loads the engine once,
+disposes the figure on unmount, and pauses the flight when offscreen or the tab
+is hidden. Reduced-motion preferences stop
 autoplay. A separate inline paper-plane SVG appears in the empty lead list and
 serves as the landing illustration's loading/error fallback.
 

@@ -1,5 +1,5 @@
 .paper-plane-figure {
-  width: min(440px, 100%);
+  width: min(560px, 100%);
   margin: 18px 0 0;
 }
 .hairline-stage {
@@ -8,31 +8,8 @@
   --hairline-edge: var(--muted);
   --hairline-mid: var(--faint);
   --hairline-lo: var(--border);
-  height: clamp(190px, 26vh, 280px);
+  height: clamp(220px, 29vh, 300px);
   aspect-ratio: auto;
-}
-.plane-caption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  color: var(--faint);
-  font-size: 12px;
-}
-.plane-play {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 0 7px 8px;
-  flex-shrink: 0;
-  color: var(--muted);
-  font-size: 12px;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-}
-.plane-play:hover {
-  color: var(--accent);
 }
 .plane-fallback {
   color: var(--accent);
@@ -74,13 +51,5 @@
   }
   .hairline-stage {
     height: 170px;
-  }
-  .plane-caption {
-    font-size: 11px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .plane-play {
-    display: none;
   }
 }

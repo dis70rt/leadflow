@@ -20,7 +20,6 @@ interface HairlineKernel {
     parent: HTMLElement,
   ): SVGElement;
   setReducedMotion(reduced: boolean): void;
-  tour(stage: HTMLElement, stops: HairlineFigure["tour"]): { stop(): void };
 }
 declare global {
   interface Window {

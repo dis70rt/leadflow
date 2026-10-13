@@ -183,8 +183,9 @@ The installed taste skill's minimalist guidance was adapted for a functional CRM
 
 ## Landing illustration
 
-The landing page includes a custom Hairline paper plane, with pointer-guided
-banking and a keyboard-accessible flight control. The engine is vendored unchanged
+The landing page includes a custom Hairline paper plane flying automatically
+along a looping route, with banked turns, wing flex, and a trailing line.
+There are no illustration captions or playback controls. The engine is vendored unchanged
 with its MIT license; no external runtime or CDN is required. The React adapter
 and hook live in `src/components/illustrations` and `src/lib/hairline`.
 Autoplay pauses offscreen, in hidden tabs, and for reduced-motion preferences.
