@@ -16,7 +16,9 @@ sudo docker compose logs -f init api worker
 
 The initializer applies migrations and, with `SEED_DEMO=true`, creates six demo leads
 and twelve discussions. Seeding uses stable IDs and never overwrites existing demo leads.
-PostgreSQL and Solr data persist in named volumes. API and database ports bind to localhost.
+PostgreSQL uses `postgres:17-alpine`. All services explicitly join the project-scoped
+`backend` bridge network (`leadflow_backend` by default). PostgreSQL and Solr data persist
+in named volumes. API and database ports bind to localhost.
 The API can operate without Solr; search returns a structured 503 until Solr recovers.
 The worker retries indexing with capped exponential backoff.
 
@@ -27,6 +29,33 @@ The worker retries indexing with capped exponential backoff.
 - Database readiness: http://localhost:8000/health/ready
 
 Stop services with `sudo docker compose down`. Keep volumes to preserve data.
+
+## Database access and container networking
+
+Within the Compose network, use `postgres:5432` and `solr:8983`.
+From the host, PostgreSQL is published at `127.0.0.1:5432`:
+
+```sh
+psql -h 127.0.0.1 -p 5432 -U leadflow -d leadflow
+```
+
+Alternatively, use the `psql` client included in the Alpine PostgreSQL image:
+
+```sh
+sudo docker compose exec postgres psql -U leadflow -d leadflow
+```
+
+After changing network configuration, recreate containers without deleting data:
+
+```sh
+sudo docker compose down
+sudo docker compose up --build -d --force-recreate
+```
+
+Port 5432 must be available on the host. Existing PostgreSQL data initialized by a Debian
+image may have incompatible locale/collation settings under Alpine's musl libc; back up
+valuable data and use a logical dump/restore if needed. Do not delete the old volume to
+resolve a locale error.
 
 ## Run Python locally
 

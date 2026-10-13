@@ -1,7 +1,8 @@
 name: leadflow-test
 services:
   postgres:
-    image: postgres:17
+    image: postgres:17-alpine
+    networks: [backend]
     environment:
       POSTGRES_DB: leadflow_test
       POSTGRES_USER: leadflow
@@ -15,6 +16,7 @@ services:
       retries: 20
   solr:
     image: solr:9.8
+    networks: [backend]
     command: ["solr-precreate", "leads_test"]
     ports: ["127.0.0.1:58983:8983"]
     tmpfs: ["/var/solr:uid=8983,gid=8983"]
@@ -23,3 +25,7 @@ services:
       interval: 2s
       timeout: 5s
       retries: 30
+
+networks:
+  backend:
+    driver: bridge
