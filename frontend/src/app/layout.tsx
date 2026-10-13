@@ -16,6 +16,7 @@ import "@/styles/timeline.css";
 import "@/styles/discussion-form.css";
 import "@/styles/login.css";
 import "@/styles/login-form.css";
+import "@/styles/skeleton.css";
 
 export const dynamic = "force-dynamic";
 

@@ -18,7 +18,6 @@
 .brand-period {
   color: var(--accent);
 }
-.loading-state,
 .error-state {
   min-height: 220px;
   display: flex;
@@ -37,11 +36,6 @@
 }
 .error-state p {
   max-width: 400px;
-}
-.boot-screen {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
 }
 .field-error {
   color: var(--red);

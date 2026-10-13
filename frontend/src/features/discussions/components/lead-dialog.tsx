@@ -2,7 +2,7 @@ import { Phone, SpinnerGap } from "@phosphor-icons/react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Modal } from "@/components/ui/modal";
-import { Loading, ErrorState } from "@/components/ui/feedback";
+import { ErrorState } from "@/components/ui/feedback";
 import { useLead, useUpdateLead } from "@/features/leads/queries";
 import {
   STATUSES,
@@ -15,6 +15,7 @@ import { errorMessage } from "@/lib/http";
 import { useWorkspaceClock } from "@/providers/workspace-context";
 import { DiscussionForm } from "./discussion-form";
 import { Timeline } from "./timeline";
+import { LeadDetailsSkeleton } from "./timeline-skeleton";
 
 export function LeadDialog() {
   const id = useWorkspace((state) => state.selectedLeadId);
@@ -64,7 +65,7 @@ function LeadDialogContent({ id }: { id: string }) {
       }
     >
       {query.isPending ? (
-        <Loading />
+        <LeadDetailsSkeleton />
       ) : query.isError ? (
         <ErrorState error={query.error} retry={() => void query.refetch()} />
       ) : (

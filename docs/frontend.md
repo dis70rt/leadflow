@@ -46,6 +46,9 @@ explicitly a demo; it does not secure the FastAPI API or the proxy.
 Forms retain drafts on failed requests, prevent duplicate submissions, and confirm before
 discarding unsaved changes. Dialogs trap focus, support Escape, and have accessible titles.
 Loading, empty, validation, retry, and disconnected-backend states are rendered explicitly.
+Theme-aware skeletons mirror the workspace, lead rows, and timeline while initial data loads;
+background refreshes preserve existing records. Skeleton regions announce loading accessibly,
+and shimmer is disabled for reduced-motion preferences.
 Reduced-motion preferences are respected. Mobile users retain access to theme and sign-out.
 
 Pagination comes from the backend. The follow-up count says "in this view" because it
@@ -134,7 +137,7 @@ The test stack uses temporary storage; do not aim these tests at valuable data.
 
 ## Verified checks
 
-During implementation, 11 frontend unit tests, five mocked browser workflows, and the
+During implementation, 11 frontend unit tests, six mocked browser workflows, and the
 separate real-backend browser workflow passed. The standalone production build was run
 against the development backend and captured without browser errors or horizontal overflow.
 The backend's 32 tests also passed with PostgreSQL/Solr integration enabled.

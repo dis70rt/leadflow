@@ -17,3 +17,7 @@ with a demo session named Alex Morgan. Original captures have not been removed.
 | [workspace-mobile.png](workspace-mobile.png) | Mobile light workspace |
 | [workspace-dark.png](workspace-dark.png) | Original dark desktop capture |
 | [workspace-light.png](workspace-light.png) | Original light desktop capture |
+| [loading-leads-dark.png](loading-leads-dark.png) | Dark lead-list skeleton |
+| [loading-leads-light.png](loading-leads-light.png) | Light lead-list skeleton |
+| [loading-lead-dialog-dark.png](loading-lead-dialog-dark.png) | Lead-details skeleton |
+| [loading-timeline-dark.png](loading-timeline-dark.png) | Discussion-history skeleton |

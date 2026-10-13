@@ -1,13 +1,14 @@
 import { CalendarBlank, ChatCircleText } from "@phosphor-icons/react";
-import { Loading, ErrorState } from "@/components/ui/feedback";
+import { ErrorState } from "@/components/ui/feedback";
 import { dateTime, relativeTime } from "@/lib/dates";
 import { useWorkspaceClock } from "@/providers/workspace-context";
 import { useDiscussions } from "../queries";
+import { TimelineSkeleton } from "./timeline-skeleton";
 
 export function Timeline({ leadId }: { leadId: string }) {
   const query = useDiscussions(leadId);
   const { now, timeZone } = useWorkspaceClock();
-  if (query.isPending) return <Loading label="Loading conversations…" />;
+  if (query.isPending) return <TimelineSkeleton />;
   if (query.isError)
     return (
       <ErrorState error={query.error} retry={() => void query.refetch()} />

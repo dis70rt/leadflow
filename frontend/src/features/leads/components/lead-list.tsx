@@ -6,7 +6,7 @@ import {
   Plus,
   UsersThree,
 } from "@phosphor-icons/react";
-import { Loading, ErrorState } from "@/components/ui/feedback";
+import { ErrorState } from "@/components/ui/feedback";
 import { isToday } from "@/lib/dates";
 import { useWorkspaceClock } from "@/providers/workspace-context";
 import { useWorkspace } from "@/features/workspace/store";
@@ -15,6 +15,7 @@ import { PAGE_SIZE } from "../api";
 import { useLeads } from "../queries";
 import { LeadRow } from "./lead-row";
 import { LeadToolbar } from "./lead-toolbar";
+import { LeadListSkeleton } from "./lead-list-skeleton";
 
 export function LeadList() {
   const search = useWorkspace((state) => state.search);
@@ -42,7 +43,7 @@ export function LeadList() {
         {busy && !query.isPending ? "Updating your view…" : ""}
       </div>
       {query.isPending ? (
-        <Loading label="Gathering your leads…" />
+        <LeadListSkeleton />
       ) : query.isError ? (
         <ErrorState error={query.error} retry={() => void query.refetch()} />
       ) : (

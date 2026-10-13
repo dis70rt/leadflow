@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Loading } from "@/components/ui/feedback";
+import { WorkspaceSkeleton } from "@/features/workspace/components/workspace-skeleton";
 import { Dashboard } from "@/features/workspace/dashboard";
 import { Login } from "./login";
 import { useAuth } from "./store";
@@ -13,11 +13,6 @@ export function WorkspaceGate() {
       setHydrated(true),
     );
   }, []);
-  if (!hydrated)
-    return (
-      <main className="boot-screen">
-        <Loading />
-      </main>
-    );
+  if (!hydrated) return <WorkspaceSkeleton />;
   return user ? <Dashboard /> : <Login />;
 }
