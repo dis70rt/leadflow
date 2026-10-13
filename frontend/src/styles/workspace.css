@@ -8,6 +8,8 @@
   border-right: 1px solid var(--border);
   min-height: 100dvh;
   height: 100dvh;
+  overflow-y: auto;
+  scrollbar-width: thin;
   position: sticky;
   top: 0;
   padding: 30px 18px 0;

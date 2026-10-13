@@ -36,7 +36,24 @@ export const test = base.extend<{ workspace: void }>({
         const parts = url.pathname.split("/").filter(Boolean);
         const id = parts[3];
         const lead = leads.find((item) => item.id === id);
-        if (parts[4] === "discussions" && lead) {
+        if (id === "suggestions") {
+          const q = url.searchParams.get("q")?.toLowerCase() ?? "";
+          await route.fulfill({
+            json: {
+              items: leads
+                .filter((item) =>
+                  `${item.name} ${item.company} ${item.last_note}`
+                    .toLowerCase()
+                    .includes(q),
+                )
+                .map((item) => ({
+                  ...item,
+                  match_field: "discussion",
+                  snippet: item.last_note,
+                })),
+            },
+          });
+        } else if (parts[4] === "discussions" && lead) {
           if (request.method() === "POST") {
             const body = request.postDataJSON();
             const discussion = {

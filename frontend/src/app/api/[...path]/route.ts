@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const allowedPath = /^v1\/leads(?:\/[0-9a-f-]{36}(?:\/discussions)?)?$/i;
+const allowedPath =
+  /^v1\/leads(?:\/suggestions|\/[0-9a-f-]{36}(?:\/discussions)?)?$/i;
 
 async function proxy(
   request: NextRequest,
