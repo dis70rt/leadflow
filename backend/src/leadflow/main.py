@@ -6,6 +6,7 @@ from leadflow.core.errors import install_handlers
 from leadflow.core.health import router as health_router
 from leadflow.features.discussions.router import router as discussions_router
 from leadflow.features.leads.router import router as leads_router
+from leadflow.features.search.router import router as search_router
 
 
 def create_app() -> FastAPI:
@@ -17,7 +18,7 @@ def create_app() -> FastAPI:
             "business timezone. PostgreSQL is authoritative; Solr search is eventually consistent. "
             "This assessment API has no authentication and should run in a trusted environment."
         ),
-        openapi_tags=[{"name": name} for name in ("Leads", "Discussions", "Health")],
+        openapi_tags=[{"name": name} for name in ("Leads", "Discussions", "Search", "Health")],
     )
     app.add_middleware(
         CORSMiddleware,
@@ -27,6 +28,7 @@ def create_app() -> FastAPI:
         expose_headers=["Location"],
     )
     install_handlers(app)
+    app.include_router(search_router, prefix="/api/v1")
     app.include_router(leads_router, prefix="/api/v1")
     app.include_router(discussions_router, prefix="/api/v1")
     app.include_router(health_router)

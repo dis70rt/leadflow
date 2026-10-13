@@ -13,9 +13,13 @@ class FakeSearch:
     def __init__(self):
         self.ids = []
         self.documents = []
+        self.hits = []
 
     def search(self, query):
         return self.ids
+
+    def suggest(self, query, limit):
+        return self.hits[:limit]
 
     def upsert(self, document):
         self.documents.append(document)

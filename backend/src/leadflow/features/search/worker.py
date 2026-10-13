@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from leadflow.core.database import SessionFactory, utcnow
 from leadflow.features.discussions.models import Discussion
 from leadflow.features.leads.models import Lead
-from leadflow.features.search.interfaces import SearchIndex
+from leadflow.features.search.interfaces import SearchWriter
 from leadflow.features.search.models import IndexEvent
 from leadflow.features.search.solr import get_search_index
 
@@ -27,7 +27,7 @@ def build_document(session: Session, lead: Lead) -> dict:
 
 
 class IndexWorker:
-    def __init__(self, search: SearchIndex):
+    def __init__(self, search: SearchWriter):
         self.search = search
 
     def process_one(self, session: Session) -> bool:

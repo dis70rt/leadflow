@@ -42,8 +42,10 @@ def test_solr_query_and_failure(monkeypatch):
     original_client = httpx.Client
 
     def handler(request):
-        assert request.url.params["uf"] == "-*"
-        assert request.url.params["q"] == r"name\:Sarah"
+        assert request.url.params["defType"] == "lucene"
+        assert "sarah*" in request.url.params["q"]
+        assert "sarah~1" in request.url.params["q"]
+        assert "discussions_txt" in request.url.params["q"]
         return httpx.Response(
             200, json={"response": {"numFound": 1, "docs": [{"id": str(identifier)}]}}
         )

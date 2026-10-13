@@ -7,12 +7,12 @@ from leadflow.features.leads.models import Lead, LeadStatus
 from leadflow.features.leads.presentation import present_lead, today_bounds
 from leadflow.features.leads.repository import LeadRepository
 from leadflow.features.leads.schemas import LeadCreate, LeadPage, LeadRead, LeadUpdate
-from leadflow.features.search.interfaces import SearchIndex
+from leadflow.features.search.interfaces import LeadSearch
 from leadflow.features.search.models import IndexEvent
 
 
 class LeadService:
-    def __init__(self, session: Session, search: SearchIndex):
+    def __init__(self, session: Session, search: LeadSearch):
         self.session = session
         self.repository = LeadRepository(session)
         self.search = search
