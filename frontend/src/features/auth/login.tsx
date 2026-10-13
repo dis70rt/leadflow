@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, GitBranch } from "@phosphor-icons/react";
 import { useState, type FormEvent } from "react";
-import { PaperPlane } from "@/components/illustrations/paper-plane";
+import { CrmWorkflow } from "@/components/illustrations/crm-workflow";
 import { Brand } from "@/components/ui/brand";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "./store";
@@ -31,7 +31,7 @@ export function Login() {
           <p>
             A clear view of every lead, every conversation, and what comes next.
           </p>
-          <PaperPlane />
+          <CrmWorkflow />
         </div>
         <p className="login-caption">
           Less busywork. More meaningful conversations.

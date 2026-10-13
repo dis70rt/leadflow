@@ -42,7 +42,9 @@ These captures use real Solr matches for the misspelled query `pricng`.
 
 ## Hairline landing illustration
 
-These captures show the new paper-plane artwork. Earlier captures remain above.
+These captures preserve the superseded paper-plane concept. The landing screen
+now uses an animated CRM workflow; browser captures were skipped for that
+revision at the user's request. Earlier captures remain above.
 
 - [Tokyo Night landing](landing-hairline-dark.png)
 - [Light landing](landing-hairline-light.png)

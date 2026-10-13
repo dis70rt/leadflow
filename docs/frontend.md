@@ -183,13 +183,17 @@ The installed taste skill's minimalist guidance was adapted for a functional CRM
 
 ## Landing illustration
 
-The landing page includes a custom Hairline paper plane flying automatically
-along a looping route, with banked turns, wing flex, and a trailing line.
-There are no illustration captions or playback controls. The engine is vendored unchanged
-with its MIT license; no external runtime or CDN is required. The React adapter
-and hook live in `src/components/illustrations` and `src/lib/hairline`.
-Autoplay pauses offscreen, in hidden tabs, and for reduced-motion preferences.
+The landing page shows a CRM workflow: new leads, discussions, and reminders
+converge on LeadFlow, then connect to qualification, follow-up, and won deals.
+Dots travel along the SVG connections, with a subtle pulse around the central
+workspace. Nodes use HTML text and existing Phosphor icons for readable labels.
 
-The workspace's empty lead list uses a smaller inline SVG. See
-[illustration notes and standalone preview](illustrations/README.md) and
-[retained captures](screenshots/README.md#hairline-landing-illustration).
+`src/components/illustrations/crm-workflow.tsx` owns the diagram and animation
+lifecycle. Native SVG motion pauses offscreen, in hidden tabs, and for reduced
+motion; reduced-motion users see the complete static diagram. There are no
+illustration captions, controls, external scripts, or extra animation packages.
+
+The superseded paper-plane source and screenshots are preserved as historical
+design artifacts under `docs/illustrations` and `docs/screenshots`; application
+code and assets for that version have been removed. Browser checks were skipped
+for this revision at the user's request.
