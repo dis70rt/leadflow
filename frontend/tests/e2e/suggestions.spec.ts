@@ -80,3 +80,22 @@ test("shows a graceful suggestion-service error", async ({ page }) => {
     page.getByRole("button", { name: "Try again", exact: true }),
   ).toBeVisible();
 });
+
+test("autocompletes the first name with Tab and opens it with Enter", async ({
+  page,
+}) => {
+  const search = page.getByRole("combobox", {
+    name: "Search leads and discussions",
+  });
+  await search.fill("pricing");
+  await expect(page.getByRole("listbox").getByRole("option")).toBeVisible();
+  await search.press("Tab");
+  await expect(search).toHaveValue("Jamie Chen");
+  await expect(search).toBeFocused();
+  await expect(page.getByRole("listbox")).not.toBeVisible();
+  await expect(page.getByRole("dialog")).not.toBeVisible();
+  await search.fill("Jamie");
+  await expect(page.getByRole("listbox").getByRole("option")).toBeVisible();
+  await search.press("Enter");
+  await expect(page.getByRole("dialog")).toContainText("Jamie Chen");
+});

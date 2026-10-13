@@ -66,8 +66,11 @@ excerpt from discussion history or lead details. Matching words are rendered as 
 `mark` elements; Solr text is never injected as HTML. Suggestions span all lead stages,
 while the list keeps its selected status filter.
 
-Arrow keys select a suggestion, Enter opens its lead timeline, and Escape dismisses the
-popup without clearing the query. Clicking works on desktop and mobile. Loading skeletons,
+Arrow keys select a suggestion. Tab fills the selected (or first) lead name while keeping
+focus in the search input; Enter opens the selected (or first) lead timeline. Clicking a
+suggestion also fills its name and opens the timeline. Choosing a lead clears the status
+filter so the selected result can appear in the list. Escape dismisses the popup without
+clearing the query. Clicking works on desktop and mobile. Loading skeletons,
 empty feedback, errors, and retry are supported. Query cancellation and separate cache keys
 prevent older requests from replacing the current suggestions. The same typo-tolerant
 query construction powers list results, so a misspelled search can still find a lead after

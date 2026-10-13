@@ -109,7 +109,8 @@ export function SuggestionResults({
         </div>
       )}
       <div className="suggestions-footer">
-        Prefix and typo-tolerant matching<span>↑ ↓ navigate · Enter opens</span>
+        Prefix and typo-tolerant matching
+        <span>↑ ↓ navigate · Tab completes · Enter opens</span>
       </div>
     </div>
   );
