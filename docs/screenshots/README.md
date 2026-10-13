@@ -1,5 +1,9 @@
 # Application screenshots
 
+The current README uses [fresh 16:9 scenario captures](readme/README.md).
+The images below are retained historical captures.
+
+
 All captures are retained for later selection. These use the real seeded backend,
 with a demo session named Alex Morgan. Original captures have not been removed.
 

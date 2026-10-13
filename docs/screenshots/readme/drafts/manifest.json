@@ -1,0 +1,67 @@
+{
+  "capturedAt": "2026-10-13T19:15:49.621Z",
+  "viewport": "1920x1080",
+  "source": "Current frontend and isolated PostgreSQL API; search responses use a deterministic UI fixture.",
+  "captures": [
+    {
+      "file": "01-landing-dark.png",
+      "scenario": "Demo sign-in and animated CRM workflow in Tokyo Night.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "02-landing-light.png",
+      "scenario": "The same sign-in and CRM workflow in light mode.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "03-workspace-dark.png",
+      "scenario": "Review six leads, latest discussions, all six statuses, a pinned reminder, and an overdue follow-up.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "04-workspace-light.png",
+      "scenario": "Review the same lead pipeline in light mode.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "05-add-lead.png",
+      "scenario": "Create Ava Thompson at Willow Financial with an optional phone number and default New status.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "06-discussion-and-reminder.png",
+      "scenario": "Read newest-first history and draft a pricing discussion with a 4:30 PM follow-up.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "07-saved-discussion.png",
+      "scenario": "The saved discussion appears first in the timeline and updates the active reminder.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "08-status-filter.png",
+      "scenario": "Ava remains Qualified after reload; filter the pipeline to qualified leads.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "09-discussion-search.png",
+      "scenario": "Illustrative search UI: misspelled onboarding query returns an older discussion excerpt using a fixed API response fixture.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "10-search-to-timeline.png",
+      "scenario": "Open the matching lead timeline from a keyboard-selected suggestion.",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

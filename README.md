@@ -1,106 +1,192 @@
-# LeadFlow
+![LeadFlow](docs/assets/leadflow-banner.png)
 
-A single-screen CRM for leads, discussion history, and follow-up reminders. Built with
-Next.js, FastAPI, PostgreSQL, and Solr. Includes a demo sign-in, responsive layouts,
-and light/Tokyo Night themes.
+<h1 align="center">LeadFlow</h1>
 
-![LeadFlow in Tokyo Night](docs/screenshots/workspace-dark-final-readable.png)
+<p align="center">
+  A single-screen CRM for leads, conversations, and follow-ups.
+</p>
 
-## Start everything
+<p align="center">
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-1a1b26?style=flat-square&logo=nextdotjs&logoColor=white" />
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-Python_3.12-1a1b26?style=flat-square&logo=fastapi&logoColor=7aa2f7" />
+  <img alt="PostgreSQL 17" src="https://img.shields.io/badge/PostgreSQL-17-1a1b26?style=flat-square&logo=postgresql&logoColor=7aa2f7" />
+  <img alt="Solr 9.8" src="https://img.shields.io/badge/Solr-9.8-1a1b26?style=flat-square&logo=apachesolr&logoColor=7aa2f7" />
+  <img alt="Docker Compose" src="https://img.shields.io/badge/Docker-Compose-1a1b26?style=flat-square&logo=docker&logoColor=7aa2f7" />
+</p>
 
-Requirements: Docker with Compose v2. Run from this repository root:
+<p align="center">
+  <a href="#features">Features</a> ·
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#usage-scenarios">Usage</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#testing">Testing</a>
+</p>
+
+## Features
+
+- **Lead management:** create leads, filter six pipeline stages, and view latest notes and activity times.
+- **Discussion history:** newest-first timelines, status updates, and immediate list refresh after saving.
+- **Follow-ups:** date/time reminders, today's priorities pinned first, and overdue reminders in red.
+- **Search:** Solr fuzzy matching across names, companies, phones, and discussions, with autocomplete and excerpts.
+- **Interface:** responsive layouts, skeleton loading, demo sign-in, and light/Tokyo Night themes.
+- **Setup:** Docker Compose, automatic migrations, demo seeding, versioned APIs, and OpenAPI documentation.
+
+## Getting started
+
+Requires Docker and Compose v2. From the repository root:
 
 ```sh
-cp .env.example .env  # Skip if .env already exists.
+cp .env.example .env
 sudo docker compose up --build -d
 ```
 
-Open **http://localhost:3000**. Enter a name and email to start a demo session.
-API Swagger documentation is at **http://localhost:8000/docs**.
+Keep your existing `.env` if one is already configured. Compose applies migrations,
+seeds six leads and twelve discussions, and starts the frontend, API, database, and search worker.
 
-Compose starts PostgreSQL 17 Alpine, Solr, database migrations and demo seeding,
-FastAPI, the search worker, and the Next.js frontend. The initializer exits successfully;
-the other services stay running. All services explicitly share the `backend` bridge network.
-Ports 3000, 8000, 5432, and 8983 must be free. Set `WEB_PORT=3001` in `.env` if
-3000 is occupied; then open http://localhost:3001. Data persists in named volumes.
+| Service | Address |
+| --- | --- |
+| Application | http://localhost:3000 |
+| Swagger UI | http://localhost:8000/docs |
+| ReDoc | http://localhost:8000/redoc |
+| OpenAPI JSON | http://localhost:8000/openapi.json |
 
-The demo sign-in only personalizes the UI; it is not authentication. All demo users share
-the same backend data. Run this assessment in a trusted environment.
+Ports `3000`, `8000`, `5432`, and `8983` must be free. Set `WEB_PORT=3001` in `.env`
+if port 3000 is occupied. All variables are listed in [.env.example](.env.example).
 
-## Local development
+Stop with `sudo docker compose down`. Database and search data remain in named volumes.
 
-Start the backend with Docker, then run the frontend locally:
+## Usage scenarios
 
-```sh
-sudo docker compose up --build -d api worker
-cd frontend
-npm ci
-npm run dev
-```
+All images below are fresh **16:9** captures of the current interface.
+[Capture details](docs/screenshots/readme/README.md) describe the scenario data.
 
-Open the Local URL printed by Next.js. If 3000 is occupied, it selects the next available port.
-The frontend reads the root `.env`; `API_BASE_URL` defaults to `http://127.0.0.1:8000`.
-Browser requests use a same-origin proxy, so changing the frontend port does not require CORS changes.
+**Review the pipeline.** Maya's reminder is pinned for today; Ethan's overdue follow-up
+is highlighted. Each lead shows its company, latest discussion, status, and next action.
 
-- [Frontend setup, architecture, and browser tests](docs/frontend.md)
-- [Backend setup, API contract, migrations, and integration tests](docs/backend.md)
-- [Screenshots of the working application](docs/screenshots/)
+![Lead pipeline with today's reminder and an overdue follow-up](docs/screenshots/readme/03-workspace-dark.png)
 
-## Main workflows
+<details>
+<summary>Demo sign-in and CRM workflow</summary>
 
-- Add leads with name, optional company, and phone.
-- Fuzzy-search names, companies, phones, and discussion history with snippet suggestions.
-- Filter every pipeline stage and paginate server-side.
-- Pin today's follow-ups and highlight overdue reminders in red.
-- Open a lead dialog, read newest-first history, and load older discussions.
-- Save discussions with optional date/time, update status, and clear reminders.
-- Switch light/dark mode; theme survives reload, demo session stays in the browser tab.
+Enter a name and email to personalize the workspace. The animated diagram shows leads,
+discussions, and reminders flowing through the CRM.
+
+![Demo sign-in with animated CRM connections](docs/screenshots/readme/01-landing-dark.png)
+
+</details>
+
+<details>
+<summary>Create a new lead</summary>
+
+Add Ava Thompson from Willow Financial. Company and phone are optional; status starts at New.
+
+![New lead form with realistic contact details](docs/screenshots/readme/05-add-lead.png)
+
+</details>
+
+<details>
+<summary>Log a discussion and schedule a follow-up</summary>
+
+Open Maya's timeline, review earlier conversations, and record the pricing discussion
+with a 4:30 PM reminder. Saving updates the history, lead summary, and active reminder.
+
+![Discussion history and a new note with a follow-up date and time](docs/screenshots/readme/06-discussion-and-reminder.png)
+
+[View the saved discussion and updated reminder](docs/screenshots/readme/07-saved-discussion.png).
+
+</details>
+
+<details>
+<summary>Update status and filter the pipeline</summary>
+
+Move Ava to Qualified, reload, and filter to qualified leads. The updated status persists.
+
+![Qualified leads after a persisted status update](docs/screenshots/readme/08-status-filter.png)
+
+</details>
+
+<details>
+<summary>Find a lead through an older discussion</summary>
+
+Search for `onbaording`. Autocomplete surfaces Maya's earlier onboarding conversation,
+even though her latest note is about pricing. Enter opens the matching lead's timeline.
+
+![Autocomplete with a highlighted discussion excerpt](docs/screenshots/readme/09-discussion-search.png)
+
+This search UI capture uses a fixed demo API response. Real Solr behavior is covered by
+[separate integration tests](docs/backend.md#tests).
+[View the opened timeline](docs/screenshots/readme/10-search-to-timeline.png).
+
+</details>
+
+<details>
+<summary>Switch to light mode</summary>
+
+Theme preference persists across reloads. Reduced-motion preferences are respected.
+
+![Lead pipeline in light mode](docs/screenshots/readme/04-workspace-light.png)
+
+</details>
 
 ## Architecture
 
+A feature-based modular monolith. Backend routes, services, repositories, and schemas
+have separate responsibilities. The frontend uses matching feature boundaries.
+
+| Layer | Tools |
+| --- | --- |
+| Frontend | Next.js, React, TypeScript, TanStack Query, Zustand |
+| Backend | FastAPI, Python, uv, Pydantic |
+| Persistence | PostgreSQL, SQLAlchemy, Alembic |
+| Search | Apache Solr, transactional outbox worker |
+| UI | CSS theme tokens, Geist, Phosphor, Radix Dialog |
+
+PostgreSQL is authoritative. Writes and indexing events commit together; the worker
+updates Solr asynchronously. Search results may briefly lag behind a saved discussion.
+
 ```text
-frontend/src/
-  app/                   Next.js routes and server-side API proxy
-  features/
-    auth/                Demo session and sign-in
-    leads/               Typed API adapter, query hooks, forms, list
-    discussions/         Timeline, pagination, discussion form
-    search/              Fuzzy suggestions and safe discussion highlights
-    workspace/           Layout, filters, selection, pagination state
-  components/ui/         Shared accessible primitives
-  providers/             Query client, theme, shared clock/timezone
-  lib/                   HTTP interface, errors, date utilities
-  styles/                Theme tokens and small stylesheets
-backend/src/leadflow/
-  core/                  Configuration, database sessions, errors, health
-  features/              Leads, discussions, and search modules
-  scripts/               Seed and reindex commands
+backend/src/leadflow/features/   leads, discussions, search
+backend/migrations/             versioned upgrades and downgrades
+frontend/src/features/          auth, leads, discussions, search, workspace
+frontend/src/components/        shared UI and illustrations
+docs/                           setup guides and screenshots
 ```
 
-Frontend components render UI, query hooks manage server state, and API adapters implement
-requests through a small injected HTTP interface. Zustand owns workspace UI state and the
-explicit demo session. PostgreSQL remains authoritative; a transactional outbox synchronizes
-Solr asynchronously.
+[Backend and API reference](docs/backend.md) · [Frontend and local development](docs/frontend.md)
 
-## Verification
+## Testing
+
+Local checks require Python 3.12+, uv, and Node.js 22+. Run each block from the repository root.
+
+**Backend**
+
+```sh
+cd backend
+uv sync --frozen
+uv run pytest -q
+```
+
+**Frontend**
 
 ```sh
 cd frontend
+npm ci
 npm run typecheck
 npm run lint
 npm test
 npm run build
 ```
 
-Browser tests and real-service test instructions are in the linked guides. Tests distinguish
-mocked UI workflows from real PostgreSQL/Solr integration; a passing mocked test does not
-replace real-service verification.
+Fast backend tests use SQLite and fake search adapters. Real PostgreSQL/Solr tests use
+[compose.test.yaml](compose.test.yaml) and dedicated test connection variables.
+See [integration setup](docs/backend.md#tests) and [browser test setup](docs/frontend.md#browser-tests).
 
-## Design and AI usage
+## Demo scope
 
-Implemented with Codex assistance, including architecture, application code, and tests.
-The requested `Leonxlnx/taste-skill` package was installed; its `minimalist-ui` guidance
-informed the layout. Installation provenance is recorded in `skills-lock.json`; local skill
-files are ignored. Dark theme colors follow the official
-[Tokyo Night palette](https://github.com/folke/tokyonight.nvim/blob/main/extras/lua/tokyonight_night.lua).
-Icons use Phosphor and the Geist font is self-hosted through Fontsource.
+The sign-in personalizes the UI; it does not authenticate users. Demo users share backend
+data. Reminders appear in the app and do not send email or SMS.
+
+## AI usage
+
+Codex assisted with architecture, implementation, tests, and documentation.
+UI direction used `Leonxlnx/taste-skill` guidance and the Tokyo Night palette.
