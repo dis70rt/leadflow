@@ -1,0 +1,86 @@
+.paper-plane-figure {
+  width: min(440px, 100%);
+  margin: 18px 0 0;
+}
+.hairline-stage {
+  --hairline-plate: var(--sidebar);
+  --hairline-hi: var(--accent);
+  --hairline-edge: var(--muted);
+  --hairline-mid: var(--faint);
+  --hairline-lo: var(--border);
+  height: clamp(190px, 26vh, 280px);
+  aspect-ratio: auto;
+}
+.plane-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--faint);
+  font-size: 12px;
+}
+.plane-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 0 7px 8px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.plane-play:hover {
+  color: var(--accent);
+}
+.plane-fallback {
+  color: var(--accent);
+  padding: 24px;
+}
+.plane-trail,
+.plane-wing-back,
+.plane-keel,
+.plane-wing-front,
+.plane-fold {
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.plane-trail {
+  stroke: var(--faint);
+  stroke-dasharray: 2 5;
+}
+.plane-wing-back,
+.plane-keel {
+  stroke: var(--faint);
+  fill: var(--surface);
+}
+.plane-wing-front {
+  fill: var(--surface);
+}
+.plane-fold {
+  stroke: var(--border);
+}
+.empty-plane {
+  width: 160px;
+  height: 98px;
+}
+@media (max-width: 740px) {
+  .paper-plane-figure {
+    width: min(340px, 100%);
+    margin-top: 8px;
+  }
+  .hairline-stage {
+    height: 170px;
+  }
+  .plane-caption {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plane-play {
+    display: none;
+  }
+}

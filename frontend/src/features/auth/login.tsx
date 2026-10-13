@@ -1,6 +1,7 @@
 "use client";
-import { ArrowRight, Check, Circle, GitBranch } from "@phosphor-icons/react";
+import { ArrowRight, GitBranch } from "@phosphor-icons/react";
 import { useState, type FormEvent } from "react";
+import { PaperPlane } from "@/components/illustrations/paper-plane";
 import { Brand } from "@/components/ui/brand";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "./store";
@@ -24,27 +25,13 @@ export function Login() {
           <h1>
             Good relationships
             <br />
-            start with
-            <br />
+            start with <br />
             <span>showing up.</span>
           </h1>
           <p>
             A clear view of every lead, every conversation, and what comes next.
           </p>
-          <div className="relationship-map" aria-hidden="true">
-            <div className="map-path" />
-            <span className="map-node map-start">
-              <Circle weight="fill" size={14} />
-            </span>
-            <span className="map-node map-middle">
-              <GitBranch weight="bold" size={26} />
-            </span>
-            <span className="map-node map-end">
-              <Check weight="bold" size={24} />
-            </span>
-            <span className="map-label first">A conversation</span>
-            <span className="map-label last">A connection</span>
-          </div>
+          <PaperPlane />
         </div>
         <p className="login-caption">
           Less busywork. More meaningful conversations.

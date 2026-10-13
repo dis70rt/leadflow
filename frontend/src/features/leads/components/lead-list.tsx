@@ -6,6 +6,7 @@ import {
   Plus,
   UsersThree,
 } from "@phosphor-icons/react";
+import { PaperPlaneMark } from "@/components/illustrations/paper-plane-mark";
 import { ErrorState } from "@/components/ui/feedback";
 import { isToday } from "@/lib/dates";
 import { useWorkspaceClock } from "@/providers/workspace-context";
@@ -104,7 +105,11 @@ export function LeadList() {
             </div>
             {total === 0 ? (
               <div className="empty-state">
-                <MagnifyingGlass size={34} weight="duotone" />
+                {search || status !== "all" ? (
+                  <MagnifyingGlass size={34} weight="duotone" />
+                ) : (
+                  <PaperPlaneMark className="empty-plane" />
+                )}
                 <h3>
                   {search || status !== "all"
                     ? "No connections found"

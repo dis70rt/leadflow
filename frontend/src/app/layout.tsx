@@ -18,6 +18,7 @@ import "@/styles/login.css";
 import "@/styles/login-form.css";
 import "@/styles/skeleton.css";
 import "@/styles/suggestions.css";
+import "@/styles/illustrations.css";
 import "@/styles/theme-transition.css";
 
 export const dynamic = "force-dynamic";
