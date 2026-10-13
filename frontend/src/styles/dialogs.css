@@ -11,7 +11,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 41;
-  width: min(460px, calc(100vw - 32px));
+  width: min(520px, calc(100vw - 32px));
   max-height: calc(100dvh - 40px);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -20,7 +20,7 @@
   overflow: auto;
 }
 .modal-wide {
-  width: min(720px, calc(100vw - 32px));
+  width: min(820px, calc(100vw - 32px));
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -34,16 +34,16 @@
   border-bottom: 1px solid var(--border);
 }
 .modal-title {
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 570;
   letter-spacing: -0.6px;
   overflow-wrap: anywhere;
 }
 .modal-description {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--faint);
   margin-top: 7px;
-  max-width: 340px;
+  max-width: 440px;
 }
 .modal-form {
   padding: 23px 25px;
@@ -52,20 +52,20 @@
 }
 .modal-form label {
   display: block;
-  font-size: 12px;
+  font-size: 15px;
 }
 .modal-form label input {
   display: block;
   width: 100%;
   margin-top: 8px;
-  font-size: 12px;
+  font-size: 16px;
   padding: 12px;
 }
 .required {
   color: var(--red);
 }
 .optional {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--faint);
   margin-left: 5px;
   font-weight: 400;
@@ -78,7 +78,7 @@
   border-radius: 7px;
   background: var(--accent-soft);
   color: var(--accent);
-  font-size: 11px;
+  font-size: 14px;
 }
 .form-callout strong {
   font-weight: 600;

@@ -2,11 +2,11 @@
   display: grid;
   grid-template-columns:
     35px minmax(120px, 1.15fr) minmax(160px, 1.4fr)
-    130px 136px 10px;
+    148px 156px 10px;
   gap: 12px;
   width: 100%;
   text-align: left;
-  padding: 22px 20px;
+  padding: 25px 22px;
   align-items: center;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
@@ -30,7 +30,7 @@
   width: 35px;
   height: 35px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 550;
   background: var(--neutral-bg);
   color: var(--muted);
@@ -59,7 +59,7 @@
 }
 .lead-identity strong {
   display: block;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 560;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,7 +67,7 @@
 }
 .lead-identity > span {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--faint);
   margin-top: 4px;
   overflow: hidden;
@@ -80,13 +80,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .lead-note svg {
   display: none;
 }
 .lead-note small {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--faint);
   display: block;
   margin-top: 5px;
@@ -98,7 +98,7 @@
   padding: 4px 7px;
   border-radius: 5px;
   white-space: nowrap;
-  font-size: 9px;
+  font-size: 12px;
   background: var(--neutral-bg);
   color: var(--faint);
 }
@@ -126,7 +126,7 @@
   color: var(--purple);
 }
 .lead-reminder {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--muted);
   display: flex;
   gap: 6px;
@@ -134,7 +134,7 @@
 }
 .lead-reminder small {
   display: block;
-  font-size: 9px;
+  font-size: 12px;
   margin-top: 3px;
 }
 .lead-reminder.overdue {
@@ -142,7 +142,7 @@
 }
 .no-reminder {
   color: var(--faint);
-  font-size: 10px;
+  font-size: 13px;
 }
 .row-chevron {
   color: var(--faint);

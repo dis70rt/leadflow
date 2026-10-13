@@ -5,14 +5,14 @@
 .discussion-form > label {
   display: block;
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 15px;
 }
 .discussion-form textarea {
   width: 100%;
   min-height: 95px;
   max-height: 200px;
   resize: vertical;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.7;
 }
 .discussion-form-actions {
@@ -30,7 +30,7 @@
   align-items: center;
   gap: 7px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .reminder-date {
   display: flex;
@@ -41,12 +41,12 @@
 }
 .reminder-date input {
   padding: 7px 9px;
-  font-size: 11px;
+  font-size: 16px;
   max-width: 100%;
 }
 .reminder-date small,
 .closed-hint {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--faint);
 }
 .closed-hint {
@@ -101,14 +101,14 @@
     padding: 12px;
   }
   .timeline-date {
-    font-size: 9px;
+    font-size: 12px;
   }
   .discussion-form {
     padding: 17px;
   }
   .active-reminder {
     padding: 10px 20px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .modal-description {
     max-width: 260px;
@@ -121,6 +121,6 @@
   }
   .discussion-form-actions .button {
     padding: 10px 12px;
-    font-size: 11px;
+    font-size: 14px;
   }
 }

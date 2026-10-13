@@ -50,6 +50,8 @@ Theme-aware skeletons mirror the workspace, lead rows, and timeline while initia
 background refreshes preserve existing records. Skeleton regions announce loading accessibly,
 and shimmer is disabled for reduced-motion preferences.
 Reduced-motion preferences are respected. Mobile users retain access to theme and sign-out.
+Body text uses 16px, primary workspace content uses 14–16px, and supporting text stays
+at 12–13px. Wider desktop content, roomier rows, and larger dialogs support that scale.
 
 Pagination comes from the backend. The follow-up count says "in this view" because it
 counts the currently loaded page and filters rather than claiming a global reminder total.

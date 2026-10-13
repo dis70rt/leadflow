@@ -21,3 +21,13 @@ with a demo session named Alex Morgan. Original captures have not been removed.
 | [loading-leads-light.png](loading-leads-light.png) | Light lead-list skeleton |
 | [loading-lead-dialog-dark.png](loading-lead-dialog-dark.png) | Lead-details skeleton |
 | [loading-timeline-dark.png](loading-timeline-dark.png) | Discussion-history skeleton |
+
+## Larger typography
+
+- [add-lead-dark-readable.png](add-lead-dark-readable.png)
+- [login-light-readable.png](login-light-readable.png)
+- [timeline-dark-readable.png](timeline-dark-readable.png)
+- [timeline-mobile-dark-readable.png](timeline-mobile-dark-readable.png)
+- [workspace-dark-final-readable.png](workspace-dark-final-readable.png)
+- [workspace-light-final-readable.png](workspace-light-final-readable.png)
+- [workspace-mobile-dark-readable.png](workspace-mobile-dark-readable.png)

@@ -16,7 +16,7 @@
 }
 .eyebrow {
   display: block;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--faint);
   font-weight: 500;
   letter-spacing: 1.6px;
@@ -32,7 +32,7 @@
   color: var(--accent);
 }
 .login-story-body > p {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.8;
   max-width: 330px;
   margin-top: 26px;
@@ -100,7 +100,7 @@
 .map-label {
   position: absolute;
   color: var(--faint);
-  font-size: 9px;
+  font-size: 12px;
 }
 .map-label.first {
   left: 0;
@@ -111,6 +111,6 @@
   top: 126px;
 }
 .login-caption {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--faint);
 }

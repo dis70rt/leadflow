@@ -15,7 +15,7 @@
   border-radius: 7px;
   padding: 0 12px;
   flex: 1;
-  height: 43px;
+  height: 48px;
   color: var(--faint);
 }
 .search-field:focus-within {
@@ -27,19 +27,19 @@
   outline: none;
   background: transparent !important;
   padding: 10px 0 !important;
-  font-size: 12px;
+  font-size: 15px;
 }
 .search-field input::-webkit-search-cancel-button {
   display: none;
 }
 .status-filter select {
-  height: 43px;
+  height: 48px;
   min-width: 160px;
-  font-size: 12px;
+  font-size: 15px;
 }
 .search-progress {
   min-height: 26px;
-  font-size: 10px;
+  font-size: 13px;
   padding-top: 6px;
   color: var(--faint);
 }
@@ -59,19 +59,19 @@
   color: var(--muted);
 }
 .section-title h2 {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 570;
 }
 .count-badge {
   background: var(--neutral-bg);
   color: var(--faint);
-  font-size: 10px;
+  font-size: 13px;
   padding: 1px 6px;
   border-radius: 4px;
   font-variant-numeric: tabular-nums;
 }
 .section-meta {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--faint);
 }
 .follow-up-list {
@@ -99,13 +99,13 @@
 }
 .follow-up-empty strong {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--muted);
 }
 .follow-up-empty small {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--faint);
   margin-top: 3px;
 }
@@ -120,11 +120,11 @@
 }
 .table-header {
   display: grid;
-  grid-template-columns: minmax(170px, 1.15fr) minmax(160px, 1.4fr) 130px 136px;
+  grid-template-columns: minmax(170px, 1.15fr) minmax(160px, 1.4fr) 148px 156px;
   padding: 12px 39px 12px 20px;
   border-bottom: 1px solid var(--border);
   background: color-mix(in srgb, var(--bg) 40%, var(--surface));
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 0.8px;
   color: var(--faint);
 }

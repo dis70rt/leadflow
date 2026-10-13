@@ -4,7 +4,7 @@ A single-screen CRM for leads, discussion history, and follow-up reminders. Buil
 Next.js, FastAPI, PostgreSQL, and Solr. Includes a demo sign-in, responsive layouts,
 and light/Tokyo Night themes.
 
-![LeadFlow in Tokyo Night](docs/screenshots/workspace-dark-final.png)
+![LeadFlow in Tokyo Night](docs/screenshots/workspace-dark-final-readable.png)
 
 ## Start everything
 

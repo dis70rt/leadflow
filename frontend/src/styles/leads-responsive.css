@@ -2,12 +2,12 @@
   .lead-row {
     grid-template-columns:
       32px minmax(115px, 1fr) minmax(100px, 1fr)
-      106px 110px 8px;
+      132px 148px 8px;
     gap: 9px;
     padding: 19px 16px;
   }
   .table-header {
-    grid-template-columns: minmax(156px, 1fr) minmax(100px, 1fr) 115px 119px;
+    grid-template-columns: minmax(156px, 1fr) minmax(100px, 1fr) 141px 157px;
     padding-left: 16px;
     padding-right: 33px;
   }
@@ -16,7 +16,7 @@
     height: 32px;
   }
   .status-badge {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 @media (max-width: 1100px) and (min-width: 901px), (max-width: 740px) {
@@ -61,7 +61,7 @@
     display: none;
   }
   .section-meta {
-    max-width: 145px;
+    max-width: 180px;
     text-align: right;
   }
   .section-title {
@@ -87,18 +87,18 @@
     flex-wrap: wrap;
   }
   .section-title h2 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .section-meta {
-    font-size: 8px;
+    font-size: 12px;
   }
   .follow-up-empty {
     padding: 16px 12px;
   }
   .follow-up-empty strong {
-    font-size: 10px;
+    font-size: 13px;
   }
   .follow-up-empty small {
-    font-size: 9px;
+    font-size: 12px;
   }
 }

@@ -9,7 +9,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font:
-    14px/1.5 "Geist Variable",
+    16px/1.6 "Geist Variable",
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
@@ -71,9 +71,9 @@ button {
   justify-content: center;
   gap: 9px;
   padding: 11px 17px;
-  min-height: 42px;
+  min-height: 46px;
   border-radius: 7px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 560;
   white-space: nowrap;
   text-decoration: none;
@@ -107,9 +107,9 @@ button {
   color: var(--muted);
 }
 .compact {
-  min-height: 34px;
+  min-height: 40px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 15px;
 }
 .icon-button {
   width: 36px;
@@ -154,7 +154,7 @@ input[type="checkbox"] {
   margin: 0;
 }
 label {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
 }
 .sr-only {

@@ -6,7 +6,7 @@
   justify-content: space-between;
   margin-bottom: 23px;
   color: var(--faint);
-  font-size: 9px;
+  font-size: 12px;
 }
 .timeline-heading > span:first-child {
   letter-spacing: 1px;
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 9px;
 }
@@ -55,7 +55,7 @@
   border-radius: 7px;
 }
 .timeline-note p {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--text);
   line-height: 1.8;
   white-space: pre-wrap;
@@ -70,7 +70,7 @@
   color: var(--accent);
   background: var(--accent-soft);
   border-radius: 4px;
-  font-size: 9px;
+  font-size: 12px;
 }
 .timeline-empty {
   text-align: center;
@@ -84,13 +84,13 @@
 .timeline-empty strong {
   display: block;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 15px;
 }
 .timeline-empty p {
   margin-top: 6px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .load-more {
   margin: 22px 0 0 44px;
-  font-size: 10px;
+  font-size: 13px;
 }

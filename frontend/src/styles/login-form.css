@@ -16,19 +16,19 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1.2px;
   color: var(--faint);
   margin-bottom: 22px;
 }
 .login-form-wrap h2 {
-  font-size: 29px;
+  font-size: 32px;
   letter-spacing: -1px;
   font-weight: 570;
 }
 .login-form-wrap > p {
   margin-top: 11px;
-  font-size: 12px;
+  font-size: 15px;
   color: var(--faint);
 }
 .login-form {
@@ -37,13 +37,13 @@
   margin-top: 32px;
 }
 .login-form label {
-  font-size: 11px;
+  font-size: 14px;
 }
 .login-form input {
   display: block;
   width: 100%;
   margin-top: 9px;
-  font-size: 12px;
+  font-size: 16px;
   padding: 13px;
   background: var(--surface);
 }
@@ -66,7 +66,7 @@
   margin-top: 2px;
 }
 .demo-note p {
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.9;
 }
 .login-footer {
@@ -74,7 +74,7 @@
   justify-content: space-between;
   gap: 15px;
   color: var(--faint);
-  font-size: 9px;
+  font-size: 12px;
 }
 @media (max-width: 1000px) {
   .login-story {
@@ -108,7 +108,7 @@
     display: none;
   }
   .login-story-body > p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 20px;
   }
   .relationship-map,
@@ -117,7 +117,7 @@
   }
   .eyebrow {
     margin-bottom: 18px;
-    font-size: 8px;
+    font-size: 12px;
   }
   .login-form-side {
     padding: 20px 28px;
@@ -126,7 +126,7 @@
     padding: 25px 0 45px;
   }
   .login-form-wrap h2 {
-    font-size: 27px;
+    font-size: 30px;
   }
   .login-theme {
     position: absolute;
@@ -134,6 +134,6 @@
     top: 16px;
   }
   .login-footer {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
