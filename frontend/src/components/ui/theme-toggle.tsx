@@ -1,9 +1,10 @@
 "use client";
 import { MoonStars, Sun } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
+import { type MouseEvent, useSyncExternalStore } from "react";
+import { flushSync } from "react-dom";
 const subscribe = () => () => {};
-let transitionTimer: number | undefined;
+let transitioning = false;
 export function ThemeToggle() {
   const mounted = useSyncExternalStore(
     subscribe,
@@ -12,15 +13,50 @@ export function ThemeToggle() {
   );
   const { theme, setTheme } = useTheme();
   const dark = !mounted || theme === "dark";
-  function toggleTheme() {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.documentElement.classList.add("theme-transition");
-      window.clearTimeout(transitionTimer);
-      transitionTimer = window.setTimeout(() => {
-        document.documentElement.classList.remove("theme-transition");
-      }, 350);
+  async function toggleTheme(event: MouseEvent<HTMLButtonElement>) {
+    if (transitioning) return;
+    const nextTheme = dark ? "light" : "dark";
+    if (
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setTheme(nextTheme);
+      return;
     }
-    setTheme(dark ? "light" : "dark");
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+    transitioning = true;
+    document.documentElement.classList.add("theme-reveal");
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setTheme(nextTheme));
+    });
+    try {
+      await transition.ready;
+      await document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 550,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      ).finished;
+    } catch {
+      transition.skipTransition();
+    } finally {
+      await transition.finished;
+      document.documentElement.classList.remove("theme-reveal");
+      transitioning = false;
+    }
   }
   return (
     <button

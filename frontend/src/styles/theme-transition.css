@@ -1,14 +1,23 @@
-@media (prefers-reduced-motion: no-preference) {
-  .theme-transition,
-  .theme-transition *,
-  .theme-transition *::before,
-  .theme-transition *::after {
-    transition:
-      background-color 300ms ease,
-      color 300ms ease,
-      border-color 300ms ease,
-      box-shadow 300ms ease,
-      fill 300ms ease,
-      stroke 300ms ease !important;
-  }
+.theme-reveal::view-transition-old(root),
+.theme-reveal::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.theme-reveal::view-transition-old(root) {
+  z-index: 1;
+}
+
+.theme-reveal::view-transition-new(root) {
+  z-index: 2;
+}
+
+.theme-reveal::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+.theme-reveal *,
+.theme-reveal *::before,
+.theme-reveal *::after {
+  transition: none !important;
 }
